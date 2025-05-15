@@ -1,7 +1,16 @@
+@font-face {
+    font-family: 'Trajan';
+    src: url('fonts/TrajanPro-Bold.otf'),
+    url('fonts/TrajanPro-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 *{
     margin: 0;
     padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Trajan', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 p{
@@ -13,7 +22,9 @@ p{
     background-image: url(imagens/wallpaper.png);
     background-size: cover;
     width: 100%;
-    height: 1080px;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
 }
 
 .timeline{
@@ -40,7 +51,7 @@ p{
 
 .soloitem p{
     position: relative;
-    z-index: 2;
+    z-index: 1;
     font-size: 14px;
 }
 
@@ -51,18 +62,8 @@ p{
 .soloitem img:hover{
     transform: scale(1.2);
     border-radius: 20px;
+    cursor: pointer;
 }
-
-.container {
-  color: red;
-}
-
-.container:hover + .soloitem:hover > :not(:hover) {
-    opacity: 0.5;
-    filter: brightness(0.5);
-}
-
-
 
 .wline::before{
     content: "";
@@ -95,4 +96,111 @@ p{
     left: -50%;
     bottom: 53%;
     z-index: 1;
+}
+
+.janela-modal{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #222222be;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal{
+  width: 60%;
+  min-width: 450px;
+  min-height: 200px;
+  background-color: rgba(61, 61, 61, 0.548);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 20px;
+  top: 100px;
+  display: flex;
+  color: rgb(241, 241, 241);
+}
+
+.fechar{
+    position:absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.janela-modal.abrir{
+    display: flex;
+}
+
+
+.btn{
+    position: relative;
+    z-index: 2;
+}
+
+.btn:hover{
+    background-color: orange;
+}
+
+.modal h1, .modal p{
+    flex-direction: row;
+}
+
+.modal h1{
+    font-size: 44px;
+}
+
+.modal h3{
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.modal::before, .modal::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    z-index: 998;
+    top: 0%;
+    left: 0%;
+}
+
+.modal::before{
+    filter: blur(7px);
+}
+
+.textomodal{
+    padding-left: 12px;
+}
+
+.textomodal p{
+    color: #dddddd;
+}
+
+@keyframes abrirmodal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, 0, -20px);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.abrir .modal{
+    animation: abrirmodal 0.7s;
 }
