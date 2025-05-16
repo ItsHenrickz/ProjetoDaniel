@@ -6,6 +6,10 @@
     font-style: normal;
 }
 
+.tldois{
+    display: none;
+}
+
 
 *{
     margin: 0;
@@ -21,10 +25,11 @@ p{
 .wallp{
     background-image: url(imagens/wallpaper.png);
     background-size: cover;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     z-index: -1;
     position: absolute;
+    background-position: center;
 }
 
 .timeline{
@@ -43,7 +48,7 @@ p{
 
 .img{
     border: 3px solid yellow;
-    border-radius: 100px;
+    border-radius: 60px;
     height: 156px;
     z-index: 3;
     position: relative;
@@ -51,7 +56,7 @@ p{
 
 .soloitem p{
     position: relative;
-    z-index: 1;
+    z-index: 2;
     font-size: 14px;
 }
 
@@ -65,7 +70,7 @@ p{
     cursor: pointer;
 }
 
-.wline::before{
+.dline::before{
     content: "";
     height: 3px;
     width: 350px;
@@ -76,7 +81,7 @@ p{
     z-index: 1;
 }
 
-.tline::before{
+.cline::before{
     content: "";
     height: 330px;
     width: 3px;
@@ -87,7 +92,29 @@ p{
     z-index: 1;
 }
 
-.yline::before{
+.eline::before{
+    content: "";
+    height: 3px;
+    width: 350px;
+    background-color: #999999;
+    position: absolute;
+    left: -50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.celine::before{
+    content: "";
+    height: 1px;
+    width: 1px;
+    background-color: #999999;
+    position: absolute;
+    left: 50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.celine::after{
     content: "";
     height: 3px;
     width: 350px;
@@ -146,7 +173,7 @@ p{
 
 .btn{
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .btn:hover{
@@ -203,4 +230,128 @@ p{
 
 .abrir .modal{
     animation: abrirmodal 0.7s;
+}
+
+@media screen and (max-width: 700px) {
+    .timeline{
+        grid-template-columns: auto;
+    }
+    
+    .tldois{
+        display: block;
+    }
+
+    .tlum{
+        display: none;
+    }
+
+    .dline::before, .cline::before, .eline::before, .celine::before{
+        height: 350px;
+        width: 3px;
+    }
+
+    .eline::before{
+        left: 50%;
+    }
+
+    .celine::after{
+        opacity: 0;
+    }
+
+    .wallp{
+        background-image: linear-gradient(#222222, #101010);
+        height: max-content;
+        width: 100%;
+    }
+
+    .modal{
+        width: 80vw;
+        height: max-content;
+        display: grid;
+        grid-template-columns: auto;
+        margin-left:auto;
+        margin-right: auto;
+    }
+
+    .modal img{
+        height: 200px;
+        margin: 0 auto 0 auto;
+    }
+
+    .janela-modal{
+        width: 100vw;
+        height: 80vh;
+    }
+
+    #janela-modal1{
+        padding-top: 0%;
+    }
+    #janela-modal2{
+        padding-top: 20%;
+    }
+    #janela-modal3{
+        padding-top: 40%;
+    }
+    #janela-modal4{
+        padding-top: 60%;
+    }
+    #janela-modal5{
+        padding-top: 120%;
+    }
+    #janela-modal6{
+        padding-top: 305%;
+    }
+    #janela-modal7{
+        padding-top: 270%;
+    }
+    #janela-modal8{
+        padding-top: 210%;
+    }
+    #janela-modal9{
+        padding-top: 190%;
+    }
+    #janela-modal10{
+        padding-top: 150%;
+    }
+    #janela-modal11{
+        padding-top: 305%;
+    }
+    #janela-modal12{
+        padding-top: 305%;
+    }
+
+    .textomodal{
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1500px) {
+    .dline::before, .eline::before{
+        width: 300px;
+        height: 3px;
+    }
+
+    .janela-modal{
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
+    }
+
+    .modal{
+        width: 80vw;
+        height: max-content;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .modal img{
+        height: 200px;
+        margin: 0 auto 0 auto;
+    }
+
+    .wallp{
+        height: auto;
+        max-height: 1000px;
+        width: auto;
+    }
 }
