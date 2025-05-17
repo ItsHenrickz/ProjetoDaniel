@@ -140,8 +140,6 @@ p{
 
 .modal{
   width: 60%;
-  min-width: 450px;
-  min-height: 200px;
   background-color: rgba(61, 61, 61, 0.548);
   backdrop-filter: blur(10px);
   padding: 50px;
@@ -232,7 +230,7 @@ p{
     animation: abrirmodal 0.7s;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1300px) {
     .timeline{
         grid-template-columns: auto;
     }
@@ -280,78 +278,11 @@ p{
 
     .janela-modal{
         width: 100vw;
-        height: 80vh;
-    }
-
-    #janela-modal1{
-        padding-top: 0%;
-    }
-    #janela-modal2{
-        padding-top: 20%;
-    }
-    #janela-modal3{
-        padding-top: 40%;
-    }
-    #janela-modal4{
-        padding-top: 60%;
-    }
-    #janela-modal5{
-        padding-top: 120%;
-    }
-    #janela-modal6{
-        padding-top: 305%;
-    }
-    #janela-modal7{
-        padding-top: 270%;
-    }
-    #janela-modal8{
-        padding-top: 210%;
-    }
-    #janela-modal9{
-        padding-top: 190%;
-    }
-    #janela-modal10{
-        padding-top: 150%;
-    }
-    #janela-modal11{
-        padding-top: 305%;
-    }
-    #janela-modal12{
-        padding-top: 305%;
+        height: 100vh;
+        position: fixed;
     }
 
     .textomodal{
         padding: 0;
-    }
-}
-
-@media screen and (min-width: 701px) and (max-width: 1500px) {
-    .dline::before, .eline::before{
-        width: 300px;
-        height: 3px;
-    }
-
-    .janela-modal{
-        width: 100vw;
-        height: 100vh;
-        margin: auto;
-    }
-
-    .modal{
-        width: 80vw;
-        height: max-content;
-        display: grid;
-        grid-template-columns: auto;
-    }
-
-    .modal img{
-        height: 200px;
-        margin: 0 auto 0 auto;
-    }
-
-    .wallp{
-        height: auto;
-        max-height: 1000px;
-        width: auto;
     }
 }
