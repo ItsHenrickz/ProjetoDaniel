@@ -1,0 +1,40 @@
+#img_header {
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    
+}
+
+#header {
+    text-align: center, left;
+    background-color: rgba(255, 255, 255, 0.436);
+}
+
+
+.botoes-superiores {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login,
+.cadastro {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.cadastro {
+  background-color: gray;
+}
+
+.login:hover,
+.cadastro:hover {
+  opacity: 0.9;
+}
