@@ -25,11 +25,32 @@ p{
 .wallp{
     background-image: url(imagens/wallpaper.png);
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: -1;
     position: absolute;
     background-position: center;
+}
+
+.headerline{
+    position: relative;
+    align-content: center;
+    text-align: center;
+    background-color: #1d1d1d;
+    color: rgb(250, 250, 232);
+    height: 100px;
+}
+
+.headerline::before{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 50vw;
+    background-color: beige;
+    top: 80%;
+    right: 25%;
+    left: 25%;
+    margin-top: 2px;
 }
 
 .timeline{
@@ -40,14 +61,14 @@ p{
 .soloitem{
     text-align: center;
     color: white;
-    padding: 30px;
+    padding: 50px;
     font-size: 100%;
     margin: 10px;
     position: relative;
 }
 
 .img{
-    border: 3px solid yellow;
+    border: 3px solid red;
     border-radius: 60px;
     height: 156px;
     z-index: 3;
@@ -126,7 +147,7 @@ p{
 }
 
 .janela-modal{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   top: 0;
@@ -169,14 +190,7 @@ p{
 }
 
 
-.btn{
-    position: relative;
-    z-index: 3;
-}
 
-.btn:hover{
-    background-color: orange;
-}
 
 .modal h1, .modal p{
     flex-direction: row;
@@ -196,7 +210,7 @@ p{
     position: absolute;
     height: 100%;
     width: 100%;
-    border: 2px solid yellow;
+    border: 2px solid red;
     border-radius: 20px;
     z-index: 998;
     top: 0%;
