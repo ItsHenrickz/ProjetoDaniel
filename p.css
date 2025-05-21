@@ -1,0 +1,43 @@
+#meu-cabecalho {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid crimson;
+    font-family: 'Cinzel', serif;
+}
+
+#meu-cabecalho h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: crimson;
+}
+
+#meu-cabecalho p {
+    font-style: italic;
+    color: #ccc;
+    font-size: 1.2em;
+}
+
+#caixa{
+    background-color: #ffffff;   
+    padding: 20px;               
+    margin: 30px auto;           
+    border-radius: 10px;         
+    max-width: 800px;            
+    color: rgb(255, 2, 2);                
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    font-family: 'Cinzel', serif;
+    text-align: left; 
+}
+
+#bem-vindo{
+    color: crimson;
+    font-family: 'Cinzel', serif;
+}
+#fundo{
+    background-image: url(https://i.pinimg.com/736x/47/b2/cd/47b2cd79a522be596fe6549b419c46f7.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
