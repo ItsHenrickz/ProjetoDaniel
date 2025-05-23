@@ -26,9 +26,9 @@
     border-radius: 10px;         
     max-width: 800px;            
     color: rgb(255, 255, 255);                
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px rgba(143, 33, 33, 0.6);
     font-family: 'Cinzel', serif;
-    text-align: left; 
+    text-align: left;
 }
 #caixa h2{
     color: crimson;
@@ -40,14 +40,20 @@
     padding-left:10px;
     padding-right:10px;
 }
-#fundo{
-    background-image: url(https://i.pinimg.com/736x/47/b2/cd/47b2cd79a522be596fe6549b419c46f7.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
 #lista{
     font-size: medium;
     font-family: 'Cinzel', serif;
+    color:rgb(255, 255, 255);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#lista dt{
     color:crimson
+}
+#footer{
+    background-color: #333333;
+    color: crimson;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Cinzel', serif;
 }
