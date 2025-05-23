@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vamos Descobrir o mundo secreto dos Templários no Jogo Assassin's Creed">
+  <title>Templários - Assassin's Creed | A Ordem Secreta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #8B0000;
+      --primary-dark: #5A0000;
+      --primary-light: #B22222;
+      --secondary: #1A1A1A;
+      --secondary-light: #2D2D2D;
+      --accent: #D4AF37;
+      --text: #F0F0F0;
+      --text-secondary: #CCCCCC;
+      --bg: #121212;
+      --card-bg: rgba(26, 26, 26, 0.8);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 16px rgba(139, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .nav-links, .summary {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Header Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 500px;
+      max-height: 1200px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                  url('https://i.imgur.com/s4uKsQ1_d.webp?maxwidth=1520&fidelity=grand') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--accent);
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: var(--text-secondary);
+    }
+
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: var(--secondary);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    /* Accordion */
+    .accordion {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .accordion-item:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .summary {
+      background-color: var(--secondary);
+      color: var(--text);
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .summary:hover {
+      background-color: var(--secondary-light);
+    }
+
+    .summary::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      transition: var(--transition);
+    }
+
+    .accordion-item[open] .summary {
+      background-color: var(--primary-dark);
+    }
+
+    .accordion-item[open] .summary::after {
+      transform: rotate(180deg);
+    }
+
+    .content {
+      padding: 25px;
+      background-color: var(--card-bg);
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: var(--primary);
+      color: var(--text);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--text);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--secondary);
+    }
+
+    .btn-accent:hover {
+      background-color: #E6C260;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 15px;
+      color: var(--text);
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* Templars Grid */
+    .templars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .templar-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .templar-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .templar-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .templar-info {
+      padding: 20px;
+    }
+
+    .templar-info h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .templar-info p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background-color: var(--primary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 100%;
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: calc(50% + 30px);
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      padding-left: calc(50% + 30px);
+      text-align: left;
+    }
+
+    .timeline-content {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -40px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -40px;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .footer-column h3 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: var(--text);
+      background-color: var(--secondary-light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid var(--secondary-light);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .nav-links {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        transform: translateY(-150%);
+        transition: var(--transition);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .timeline::before {
+        left: 31px;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 80px;
+        padding-right: 20px;
+        text-align: left;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::before,
+      .timeline-item:nth-child(even) .timeline-content::before {
+        left: 21px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>A Ordem dos Templários</h1>
+      <p>Vamos Descobrir o mundo secreto dos Templários no Jogo Assassin's Creed</p>
+      <a href="#about" class="btn btn-accent">Saiba Mais</a>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-cross logo-icon"></i>
+        <span>Templários</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Quem são?</a></li>
+        <li><a href="#ideology">Ideologia</a></li>
+        <li><a href="#members">Membros</a></li>
+        <li><a href="#timeline">Linha do Tempo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about" class="container">
+      <div class="section-title">
+        <h2>Quem são os Templários?</h2>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <details open>
+            <summary class="summary">Origens e Propósito</summary>
+            <div class="content">
+              <p>Os Templários em Assassin's Creed são uma organização secreta que busca impor a ordem no mundo por meio do controle e da autoridade. Eles acreditam que a humanidade deve ser guiada para evitar o caos, mesmo que isso signifique tirar a liberdade das pessoas. São os principais antagonistas da série, em conflito com os Assassinos, que defendem o livre-arbítrio. Ao longo da história, os Templários se infiltram em governos, religiões e corporações para alcançar seus objetivos.</p>
+              <p>Sua missão fundamental é trazer ordem ao mundo, acreditando que apenas através do controle absoluto a humanidade pode alcançar a verdadeira paz. Essa filosofia os coloca em conflito direto com os Assassinos, que defendem o livre arbítrio acima de tudo.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="accordion-item">
+          <details>
+            <summary class="summary">Estrutura e Hierarquia</summary>
+            <div class="content">
+              <section id="hierarchy" class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div style="width: 100%;">
+    <div class="section-title">
+      <h2>Hierarquia Templária</h2>
+    </div>
+
+    <div class="hierarchy-container">
+      <div class="level grand-master">
+        <div class="level-title">
+          <i class="fas fa-crown"></i> Grão-Mestre
+        </div>
+        <div class="level-box">
+          <div class="level-icon"><i class="fas fa-cross"></i></div>
+          <div class="level-description">
+            Líder supremo da Ordem. Controla todas as operações e define os objetivos globais dos Templários.
+          </div>
+        </div>
+        <div class="connector"></div>
+      </div>
+      
+      <div class="level masters">
+        <div class="level-title">
+          <i class="fas fa-chess-queen"></i> Mestres Templários
+        </div>
+        <div class="level-box">
+          <div class="level-icon"><i class="fas fa-chess-knight"></i></div>
+          <div class="level-description">
+            Comandantes regionais que executam as ordens do Grão-Mestre e supervisionam múltiplas células.
+          </div>
+        </div>
+        <div class="connector"></div>
+      </div>
+      
+      <div class="level knights">
+        <div class="level-title">
+          <i class="fas fa-helmet-battle"></i> Cavaleiros Templários
+        </div>
+        <div class="level-box">
+          <div class="level-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="level-description">
+            Agentes de elite encarregados de missões críticas. Combatem diretamente os Assassinos.
+          </div>
+        </div>
+        <div class="connector"></div>
+      </div>
+      
+      <div class="level initiates">
+        <div class="level-title">
+          <i class="fas fa-user-graduate"></i> Iniciados
+        </div>
+        <div class="level-box">
+          <div class="level-icon"><i class="fas fa-book"></i></div>
+          <div class="level-description">
+            Novos recrutas em treinamento. Realizam tarefas básicas e são testados para promoção.
+          </div>
+        </div>
+        <div class="connector"></div>
+      </div>
+      
+      <div class="level influence">
+        <div class="level-title">
+          <i class="fas fa-network-wired"></i> Rede de Influência
+        </div>
+        <div class="level-box">
+          <div class="level-icon"><i class="fas fa-handshake"></i></div>
+          <div class="level-description">
+            Aliados não-oficiais, informantes e figuras públicas que apoiam os Templários secretamente.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* Hierarquia Animada */
+  .hierarchy-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    perspective: 1000px;
+  }
+  
+  .level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 220px;
+    transition: all 0.5s ease;
+  }
+  
+  .level-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .level-title i {
+    font-size: 1.4rem;
+    color: var(--primary);
+  }
+  
+  .level-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    text-align: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform-style: preserve-3d;
+  }
+  
+  .level-box:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(139, 0, 0, 0.4);
+    border-color: var(--accent);
+  }
+  
+  .level-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  .level-box:hover .level-icon {
+    color: var(--accent);
+    transform: scale(1.1) rotateY(15deg);
+  }
+  
+  .level-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+  }
+  
+  .level-box:hover .level-description {
+    color: var(--text);
+  }
+  
+  .connector {
+    position: absolute;
+    height: 40px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .level:hover .connector {
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    height: 50px;
+    bottom: -50px;
+  }
+  
+  /* Efeito de brilho ao passar o mouse */
+  .level-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .level-box:hover::after {
+    opacity: 1;
+  }
+  
+  /* Animação de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .level {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .level:nth-child(1) { animation-delay: 0.1s; }
+  .level:nth-child(2) { animation-delay: 0.3s; }
+  .level:nth-child(3) { animation-delay: 0.5s; }
+  .level:nth-child(4) { animation-delay: 0.7s; }
+  .level:nth-child(5) { animation-delay: 0.9s; }
+  
+  /* Responsivo */
+  @media (max-width: 1000px) {
+    .hierarchy-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      perspective: none;
+    }
+    
+    .level {
+      width: 280px;
+      animation: none;
+      opacity: 1;
+    }
+    
+    .connector {
+      display: none;
+    }
+    
+    .level-box {
+      min-height: 160px;
+    }
+    
+    .level-box:hover {
+      transform: translateY(-5px);
+    }
+  }
+</style>
+                            <p>Cada era histórica viu os Templários se adaptarem às estruturas de poder da época - desde as cortes reais medievais até as corporações multinacionais modernas como a Abstergo Industries.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ideology Section -->
+    <section id="ideology" class="container">
+      <div class="section-title">
+        <h2>Ideologia Templária</h2>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <details>
+            <summary class="summary">Filosofia de Controle</summary>
+            <div class="content">
+              <p>Os Templários acreditam que os seres humanos são incapazes de governar a si mesmos de forma pacífica e que o caos é o estado natural da humanidade. Sua solução é um sistema de controle absoluto, onde as decisões são tomadas por uma elite esclarecida em benefício de todos.</p>
+              <p>"Paz através da ordem, ordem através do controle" - este é o mantra central da filosofia templária. Eles veem sua missão como um fardo necessário, muitas vezes tomando decisões difíceis para o "bem maior".</p>
+
+            </div>
+          </details>
+        </div>
+
+        <div class="accordion-item">
+          <details>
+            <summary class="summary">Os Artefatos do Éden</summary>
+            <div class="content">
+              <p>Os Templários dedicaram séculos à busca pelos Artefatos do Éden - poderosas relíquias da Primeira Civilização que possuem a capacidade de controlar mentes, manipular a realidade e alterar o curso da história.</p>
+              <p>Eles acreditam que esses artefatos são a chave para estabelecer a Nova Ordem Mundial, onde o conflito e o sofrimento serão eliminados através do controle total da vontade humana.</p>
+              <div class="gallery">
+                <div class="gallery-item">
+                  <img src="https://pm1.aminoapps.com/6343/7284dfddc122a1bad99bdd05b72ade2fe26e2971_00.jpg" alt="Artefato do Éden" class="gallery-img">
+                  <div class="gallery-caption">Maçã do Éden</div>
+                </div>
+                <div class="gallery-item">
+                  <img src="https://pm1.aminoapps.com/6529/387c9813797a4775c5b44e2bfe987ce0f88a5737_hq.jpg" alt="Templo Templário" class="gallery-img">
+                  <div class="gallery-caption">Templo Templário</div>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+<section id="members" class="container">
+  <div class="section-title">
+    <h2>Membros Notáveis</h2>
+  </div>
+
+  <div class="templars-grid">
+    <div class="templar-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreedbr/images/2/27/Tadros.jpg/revision/latest?cb=20140112020759&path-prefix=pt" alt="Rodrigo Bórgia" class="templar-img">
+      <div class="templar-info">
+        <h3>Rodrigo Bórgia</h3>
+        <p>Rodrigo Bórgia, também conhecido como Papa Alexandre VI, foi Grão-Mestre dos Templários no Renascimento. Usou sua posição para tentar unificar a Itália sob controle templário e obter o Pedaço do Éden. Foi o principal inimigo de Ezio Auditore.</p>
+        <a href="#" class="btn btn-outline saiba-mais" data-character="rodrigo">Saiba Mais</a>
+      </div>
+    </div>
+
+    <div class="templar-card">
+      <img src="https://pm1.aminoapps.com/6463/7c9d05ae89c5c7a2a07e1809a729d18ae6bc7c08_00.jpg" alt="Haytham Kenway" class="templar-img">
+      <div class="templar-info">
+        <h3>Haytham Kenway</h3>
+        <p>Haytham Kenway foi um Cavaleiro Templário ativo durante a Revolução Americana e pai do Assassino Connor (Ratonhnhaké:ton). Carismático e inteligente, ele revelou a complexidade moral do conflito entre Templários e Assassinos, acreditando que a ordem era o melhor caminho para a paz.</p>
+        <a href="#" class="btn btn-outline saiba-mais" data-character="haytham">Saiba Mais</a>
+      </div>
+    </div>
+
+    <div class="templar-card">
+      <img src="https://sm.ign.com/ign_br/screenshot/default/crawford_mjsg.jpg" alt="Crawford Starrick" class="templar-img">
+      <div class="templar-info">
+        <h3>Crawford Starrick</h3>
+        <p>Crawford Starrick foi Grão-Mestre dos Templários durante a Revolução Industrial. Dominava Londres por meio de empresas, crime organizado e corrupção política, buscando manter o controle templário sobre a sociedade.</p>
+        <a href="#" class="btn btn-outline saiba-mais" data-character="starrick">Saiba Mais</a>
+      </div>
+    </div>
+
+    <div class="templar-card">
+      <img src="https://cdnb.artstation.com/p/assets/covers/images/039/688/903/smaller_square/matt-corcoran-matt-corcoran-otsoberg-thumb.jpg?1626650006" alt="Otso Berg" class="templar-img">
+      <div class="templar-info">
+        <h3>Otso Berg</h3>
+        <p>Otso Berg
+Membro moderno da Divisão de Operações da Abstergo e líder do Esquadrão Sigma. Ex-militar finlandês e um dos Templários mais perigosos da era contemporânea.</p>
+        <a href="#" class="btn btn-outline saiba-mais" data-character="otso">Saiba Mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="templar-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="modal-character-info">
+          </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos do Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+  }
+
+  .modal-content {
+    background-color: #111;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #333;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .close-modal {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close-modal:hover,
+  .close-modal:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #modal-character-info h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+
+  #modal-character-info p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  #modal-character-info img {
+    max-width: 200px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 90%;
+      margin: 10% auto;
+    }
+    
+    #modal-character-info img {
+      float: none;
+      display: block;
+      margin: 0 auto 20px;
+    }
+  }
+</style>
+
+<script>
+  // Dados dos personagens para o modal
+  const charactersData = {
+    rodrigo: {
+      name: "Rodrigo Bórgia",
+      image: "https://static.wikia.nocookie.net/assassinscreedbr/images/2/27/Tadros.jpg/revision/latest?cb=20140112020759&path-prefix=pt",
+      description: "Rodrigo Bórgia, também conhecido como Papa Alexandre VI, foi Grão-Mestre dos Templários durante o Renascimento italiano. Usou sua posição como líder da Igreja Católica para tentar unificar a Itália sob controle templário e obter o Fruto do Éden, um artefato poderoso que concederia controle absoluto sobre a humanidade. Pai de Cesare e Lucrezia Bórgia, Rodrigo foi o principal antagonista de Ezio Auditore da Firenze durante sua jornada como Assassino. Sua busca pelo poder absoluto e sua manipulação da religião para fins pessoais o tornaram um dos Templários mais notórios da história."
+    },
+    haytham: {
+      name: "Haytham Kenway",
+      image: "https://pm1.aminoapps.com/6463/7c9d05ae89c5c7a2a07e1809a729d18ae6bc7c08_00.jpg",
+      description: "Haytham E. Kenway foi um Cavaleiro Templário de alto escalão ativo durante a Revolução Americana e pai do Assassino Connor Kenway (Ratonhnhaké:ton). Nascido na Inglaterra, filho do Assassino Edward Kenway, Haytham foi recrutado pelos Templários após a morte de seu pai. Carismático, inteligente e habilidoso, ele liderou os Templários nas colônias americanas, acreditando que a ordem e o controle eram o verdadeiro caminho para a paz e progresso humano. Sua complexa relação com seu filho e suas ações durante a Revolução Americana revelam as nuances morais do conflito entre Templários e Assassinos."
+    },
+    starrick: {
+      name: "Crawford Starrick",
+      image: "https://sm.ign.com/ign_br/screenshot/default/crawford_mjsg.jpg",
+      description: "Crawford Starrick foi o Grão-Mestre da Ordem dos Templários durante a Revolução Industrial em Londres. Um dos Templários mais poderosos de sua época, Starrick controlava a cidade através de uma rede de empresas, instituições financeiras, crime organizado e corrupção política. Sua influência se estendia desde os mais altos escalões do governo até os becos mais sombrios de Whitechapel. Starrick buscava manter o controle templário sobre a sociedade durante um período de rápidas mudanças tecnológicas e sociais, tornando-se o principal antagonista dos gêmeos Assassinos Jacob e Evie Frye em Londres."
+    },
+    otso: {
+      name: "Otso Berg",
+      image: "https://cdnb.artstation.com/p/assets/covers/images/039/688/903/smaller_square/matt-corcoran-matt-corcoran-otsoberg-thumb.jpg?1626650006",
+      description: "Otso Berg é um membro moderno da Divisão de Operações da Abstergo Industries (a fachada contemporânea dos Templários) e líder do temido Esquadrão Sigma. Ex-membro das forças especiais finlandesas, Berg é um dos agentes templários mais perigosos e eficientes da era moderna. Extremamente habilidoso em combate e inteligência, ele caça Assassinos em todo o mundo, utilizando tanto métodos tradicionais quanto tecnologia de ponta. Berg personifica a evolução dos Templários no século 21, combinando fanatismo ideológico com eficiência militar e conhecimento tecnológico."
+    }
+  };
+
+  // Elementos do modal
+  const modal = document.getElementById('templar-modal');
+  const modalContent = document.getElementById('modal-character-info');
+  const closeBtn = document.querySelector('.close-modal');
+  const saibaMaisBtns = document.querySelectorAll('.saiba-mais');
+
+  // Abrir modal quando clicar em "Saiba Mais"
+  saibaMaisBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const characterId = this.getAttribute('data-character');
+      const character = charactersData[characterId];
+      
+      // Preencher o modal com as informações do personagem
+      modalContent.innerHTML = `
+        <img src="${character.image}" alt="${character.name}">
+        <h3>${character.name}</h3>
+        <p>${character.description}</p>
+      `;
+      
+      // Mostrar o modal
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Impede rolagem da página
+    });
+  });
+
+  // Fechar modal quando clicar no X
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura rolagem da página
+  });
+
+  // Fechar modal quando clicar fora do conteúdo
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Fechar modal com tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="container">
+      <div class="section-title">
+        <h2>Linha Do Tempo</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Século XII</div>
+            <h3>Fundação da Ordem</h3>
+            <p>Estabelecimento formal dos Cavaleiros Templários durante as Cruzadas, embora suas origens sejam mais antigas.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Século XIV</div>
+            <h3>Dissolução Pública</h3>
+            <p>Perseguição pelo rei Filipe IV da França força os Templários a operarem nas sombras.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Renascentismo</div>
+            <h3>Influência na Igreja</h3>
+            <p>Templários infiltram o alto clero, culminando com Rodrigo Bórgia como Papa Alexandre VI.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Século XVIII</div>
+            <h3>Colonialismo</h3>
+            <p>Expansão para as colônias americanas e envolvimento na Revolução Americana.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Era Moderna</div>
+            <h3>Abstergo Industries</h3>
+            <p>Fachada corporativa global que permite aos Templários operar abertamente enquanto perseguem seus objetivos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sobre os Templários</h3>
+        <ul>
+          <li><a href="#">História</a></li>
+          <li><a href="#">Filosofia</a></li>
+          <li><a href="#">Hierarquia</a></li>
+          <li><a href="#">Objetivos</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Assassin's Creed</h3>
+        <ul>
+          <li><a href="#">Jogos</a></li>
+          <li><a href="#">Livros</a></li>
+          <li><a href="#">Filme</a></li>
+          <li><a href="#">Universo Expandido</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Conecte-se</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Página fictícia para fins educacionais. Todos os direitos sobre Assassin's Creed pertencem à Ubisoft.</p>
+      <p>© 2023 Ordem dos Templários - Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    </script>
