@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abstergo Industries</title>
+
+  <!-- Ícone da aba -->
+  <link rel="icon" href="Imagens/sem_fundo.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  <script src="style.js"></script>
+  </head>
+
+  <body style="font-family: Arial, Times New Roman; margin: 0; padding: 0;">
+    <!-- Topo da página -->
+    <header style="background-color: rgba(128, 128, 128, 0.779);" id="header">
+      <img src="Imagens/Abstergo-invertido(2).png" id="header_img">
+      <h3 style= "width: 50%; height: 50%;">"Nós mudamos o mundo. Todos os dias, de cem maneiras diferentes."
+        <br>- Dr.Warren</h3>
+        <nav>
+          <ul style="color: white;">
+          <li><a href="#Templarios">Templarios</a></li>
+          <li><a href="#Produções cinematograficas">Produções</a></li>
+          <li><a href="#Arsenal de armas">Arsenal</a></li>
+          <li><a href="#Formulário">Formulário</a></li>
+        </nav>
+      <div class="botoes-superiores">
+        <button class="login" onclick="fazerLogin()">Login</button>
+        <button class="cadastro" onclick="cadastrarUsuario()">Cadastrar-se</button>
+      </div>
+    </header>
+
+ 
+    <!--Inicio do meio da pagina-->
+
+    <!--Quem somos-->
+    <section> <h1 style="color: gray; text-align: start;">Quem Somos</h1>
+    <p style= "font-style: Arial; text-align:left;"> A Abstergo Industries é uma empresa global dedicada ao avanço da ciência, da tecnologia e do bem-estar humano. Fundada com o compromisso de construir um futuro mais estável e eficiente, combinamos inovação genética, neurociência e inteligência de dados para transformar vidas e sociedades.
+    Nosso trabalho se baseia em uma verdade simples: o passado guarda as chaves do futuro. Por isso, desenvolvemos tecnologias pioneiras, como o sistema Animus, que nos permite acessar e estudar memórias genéticas humanas com precisão sem precedentes.
+    Com atuação em mais de 50 países, investimos constantemente em pesquisa, saúde, educação e segurança — sempre guiados por nossos valores de ordem, progresso e unidade global.
+    Na Abstergo, acreditamos que um mundo mais harmonioso é possível. E estamos liderando o caminho para torná-lo realidade.
+    </p>
+    </section>
+
+    <!--Missão, Visão e Valores-->
+    <section style="font-style: Arial">
+      <h4 style="color: gray;">Missão:</h4> 
+      <p>Utilizar a tecnologia e a ciência para promover harmonia, progresso e bem-estar em escala global.</p> 
+      <h4 style="color: gray;">Visão:</h4> 
+      <p>Ser a líder mundial em inovação cientifica e social, construindo um futuro mais pacífico e eficiente para as próximas gerações.</p>
+      <ol style="color: rgb(117, 117, 117); padding: 0px;">Valores:</ol>
+      <li>Progresso: Acreditamos no poder da ciência para transformar a sociedade.</li>
+      <li>Ordem: Promovemos a estabilidade como base para o crescimento humano.</li>
+      <li>Bem-estar Social: buscamos sempre aprimorar nossos produtos,<br> visando trazer sempre uma melhor qualidade de vida para nossos clientes.</li>
+      <li>Inovação ética: Desenvolvemos tecnologias com responsabilidade global.</li>
+      <li>Unidade: Trabalhamos por um mundo mais coeso, eficiente e conectado.</li>
+    </section>
+
+    <!--Ordem dos Templários-->
+    <section class="ordem"></section>
+    <!--História dos Jogos-->
+    <section class="produções">
+      <h1>Produções cinematograficas </h1>
+      <p>Através do Animus, conseguimos acessar a memória genética de seus usuários e assim reviver a memória de seus ancestrais, atráves do reavivamento de memórias criamos nossas produções cinematograficas, que contam a história de vários eventos da história que até os dias atuais, e que haviam sido esquecidos na história. E assim criamos a franquia "Assassin's Creed".</p> 
+      <a href="Assassins's-Creed">Para saber mais sobre nossas produções.</a>
+    </section>
+    <!--Armas dos Jogos-->
+    <section class="Arsenal">
+      <h1>Arsenal Abstergo</h1>
+      <a href="Armas">Saiba mais.</a>
+    </section>
+    <!--Formulário-->
+    <section style="height: 150px;" class="formulario">
+      <h1>Formulário de inscrição</h1>
+      <p>Caso você tenha se interessado em fazer parte de nossa empresa, considere se inscrever para uma vaga para vir trabalhar conosco ou visita as nossas instalações.<br> Mais informações no formulário abaixo.</p>
+      <a href="formulario">Formulário de inscrição</a></section>
+    <!--Rodapé-->
+   <footer style=" height: 150px; background-color: gray; display: flex; justify-content: center; align-items: flex-end;">
+      <h3 style="text-align:center; margin-bottom: 20px; border: none;">
+        "Através do controle vem a paz. Através da paz, a humanidade pode prosperar."
+        <br>-Warren Vidic
+      </h3>
+    </footer>
+  </body>
+</html>
