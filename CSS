@@ -19,7 +19,7 @@ body {
   height: 80px;
   margin-right: 20px;
 }
-/* Menu dentro do header, abaixo do título */
+
 .menu {
   background-color: rgb(255, 255, 255);
   margin-top: 30px;
@@ -97,7 +97,7 @@ body {
   height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* distribui verticalmente */
+  justify-content: space-between; 
   align-items: center;
   padding: 10px 0;
  }
