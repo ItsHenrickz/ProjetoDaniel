@@ -10,8 +10,6 @@ body {
   display: flex;
   align-items: flex-start;
   padding: 10px;
-  box-shadow: none;
-  border: none;
 }
 
 #header_img {
@@ -50,6 +48,7 @@ body {
   text-decoration: underline;
 }
 
+
 .botoes-superiores {
   position: absolute;
   top: 10px;
@@ -76,28 +75,39 @@ body {
 }
 
 #tempero {
-  
+  height: 120px;
+  margin-right: 40%;
 }
 
 #produçoes { 
+  height: 170px;
+  margin-right: 40%;
 }
 
 #arsenal {
+  height: 150px;
+  margin-right: 40%;
 }
 
 #form {
-  height: 150px;
+  height: 170px;
+  margin-right: 40%;
  }
 
 .h1 {
   color: gray;
  }
+
+ .Saibamais{
+  color: gray;
+ }
+
  #rodape {
   background-color: gray;
   height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between; /* distribui verticalmente */
   align-items: center;
   padding: 10px 0;
  }
