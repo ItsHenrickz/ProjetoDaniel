@@ -1,0 +1,59 @@
+#meu-cabecalho {
+    background-color: #333333;
+    color: #000000;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Cinzel', serif;
+    
+}
+
+#meu-cabecalho h1 {
+    font-size: 2.5em;
+    margin: 20px;
+    color: crimson;
+}
+
+#meu-cabecalho p {
+    font-style: italic;
+    color: #ccc;
+    font-size: 1.2em;
+}
+
+#caixa{
+    background-color: #3d3d3d;   
+    padding: 20px;               
+    margin: 30px auto;           
+    border-radius: 10px;         
+    max-width: 800px;            
+    color: rgb(255, 255, 255);                
+    box-shadow: 0 0 10px rgba(143, 33, 33, 0.6);
+    font-family: 'Cinzel', serif;
+    text-align: left;
+}
+#caixa h2{
+    color: crimson;
+    font-family: 'Cinzel', serif;;
+}
+#bem-vindo{
+    color: crimson;
+    font-family: 'Cinzel', serif;
+    padding-left:10px;
+    padding-right:10px;
+}
+#lista{
+    font-size: medium;
+    font-family: 'Cinzel', serif;
+    color:rgb(255, 255, 255);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#lista dt{
+    color:crimson
+}
+#footer{
+    background-color: #333333;
+    color: crimson;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Cinzel', serif;
+}

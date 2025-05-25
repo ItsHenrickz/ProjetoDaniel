@@ -1,0 +1,223 @@
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  
+
+}
+
+body{
+  background: linear-gradient(-120deg,black,rgb(88, 88, 88),rgb(0, 0, 0), rgb(78, 78, 78), rgb(0, 0, 0));
+
+}
+
+
+body, textarea {
+    font-family: Cinzel;
+
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+}
+
+.containerobrigado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+
+}
+
+
+
+.form_box{
+  display: flex;
+  flex-direction: column;
+  background-color: #3d3d3d;
+  border-radius: 2%;
+  box-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+
+
+
+}
+
+
+
+
+.form_box .title{
+  padding: 24px 32px;
+  font-size: 24px;
+  border-bottom: thin solid #ccc;
+
+
+}
+
+
+
+
+.form_box form{
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  padding: 32px;
+
+
+}
+
+
+
+
+.form_box input,
+.form_box textarea{
+  width: cal(50% - 8px);
+  height: 48px;
+  border-radius: 8px;
+  border: thin solid #ccc;
+  margin-bottom: 16px;
+  font-size: 16px;
+
+}
+
+
+
+
+.form_box input:first-child{
+  margin-right: 16px;
+
+}
+
+
+
+
+
+.form_box input[name=subject]{
+  width: 100%;
+
+
+}
+
+
+
+
+.form_box textarea{
+  width: 100%;
+  height: 180px;
+  padding: 16px;
+
+
+}
+
+
+
+.form_box button{
+  display: block;
+  border: red;
+  outline: black;
+  width: 180px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: darkred;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+
+}
+
+.form_box button:hover{
+  background-color: rgb(71, 26, 26);
+
+}
+
+.times_box {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.times_box p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.times_container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.option {
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+
+
+.option img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    border: 4px solid transparent;
+    transition: 0.3s;
+}
+
+
+
+
+.option input[type="radio"] {
+    display: none;
+}
+
+
+
+
+
+.option input[type="radio"]:checked + img {
+    border: 4px solid darkred;
+    box-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+
+
+
+
+.option img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+
+
+
+
+.back_button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+.back_button:hover {
+    background-color: rgb(71, 26, 26);
+}

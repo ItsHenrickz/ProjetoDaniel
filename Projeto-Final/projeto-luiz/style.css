@@ -1,0 +1,302 @@
+@font-face {
+    font-family: 'Trajan';
+    src: url('fonts/TrajanPro-Bold.otf'),
+    url('fonts/TrajanPro-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.tldois{
+    display: none;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trajan', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+.wallp{
+    background-image: url(imagens/wallpaper.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    background-position: center;
+}
+
+.headerline{
+    position: relative;
+    align-content: center;
+    text-align: center;
+    background-color: #1d1d1d;
+    color: rgb(250, 250, 232);
+    height: 100px;
+}
+
+.headerline::before{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 50vw;
+    background-color: beige;
+    top: 80%;
+    right: 25%;
+    left: 25%;
+    margin-top: 2px;
+}
+
+.timeline{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.soloitem{
+    text-align: center;
+    color: white;
+    padding: 50px;
+    font-size: 100%;
+    margin: 10px;
+    position: relative;
+}
+
+.img{
+    border: 3px solid red;
+    border-radius: 60px;
+    height: 156px;
+    z-index: 3;
+    position: relative;
+}
+
+.soloitem p{
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+}
+
+.soloitem img{
+    transition: transform 0.7s, border-radius 0.7s;
+}
+
+.soloitem img:hover{
+    transform: scale(1.2);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.dline::before{
+    content: "";
+    height: 3px;
+    width: 350px;
+    background-color: #999999;
+    position: absolute;
+    left: 50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.cline::before{
+    content: "";
+    height: 330px;
+    width: 3px;
+    background-color: #999999;
+    position: absolute;
+    left: 50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.eline::before{
+    content: "";
+    height: 3px;
+    width: 350px;
+    background-color: #999999;
+    position: absolute;
+    left: -50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.celine::before{
+    content: "";
+    height: 1px;
+    width: 1px;
+    background-color: #999999;
+    position: absolute;
+    left: 50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.celine::after{
+    content: "";
+    height: 3px;
+    width: 350px;
+    background-color: #999999;
+    position: absolute;
+    left: -50%;
+    bottom: 53%;
+    z-index: 1;
+}
+
+.janela-modal{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #222222be;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal{
+  width: 60%;
+  background-color: rgba(61, 61, 61, 0.548);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 20px;
+  top: 100px;
+  display: flex;
+  color: rgb(241, 241, 241);
+}
+
+.fechar{
+    position:absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.janela-modal.abrir{
+    display: flex;
+}
+
+
+
+
+.modal h1, .modal p{
+    flex-direction: row;
+}
+
+.modal h1{
+    font-size: 44px;
+}
+
+.modal h3{
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.modal::before, .modal::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 2px solid red;
+    border-radius: 20px;
+    z-index: 998;
+    top: 0%;
+    left: 0%;
+}
+
+.modal::before{
+    filter: blur(7px);
+}
+
+.textomodal{
+    padding-left: 12px;
+}
+
+.textomodal p{
+    color: #dddddd;
+}
+
+@keyframes abrirmodal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, 0, -20px);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.abrir .modal{
+    animation: abrirmodal 0.7s;
+}
+
+@media screen and (max-width: 1300px) {
+    .timeline{
+        grid-template-columns: auto;
+    }
+    
+    .tldois{
+        display: block;
+    }
+
+    .tlum{
+        display: none;
+    }
+
+    .dline::before, .cline::before, .eline::before, .celine::before{
+        height: 350px;
+        width: 3px;
+    }
+
+    .eline::before{
+        left: 50%;
+    }
+
+    .celine::after{
+        opacity: 0;
+    }
+
+    .wallp{
+        background-image: linear-gradient(#222222, #101010);
+        height: max-content;
+        width: 100%;
+    }
+
+    .modal{
+        width: 80vw;
+        height: max-content;
+        display: grid;
+        grid-template-columns: auto;
+        margin-left:auto;
+        margin-right: auto;
+    }
+
+    .modal img{
+        height: 200px;
+        margin: 0 auto 0 auto;
+    }
+
+    .janela-modal{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+    }
+
+    .textomodal{
+        padding: 0;
+    }
+}
