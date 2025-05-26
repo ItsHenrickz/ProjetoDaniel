@@ -472,7 +472,7 @@
 
     /* Footer */
     footer {
-      background-color: var(--secondary);
+      background-color: #1a1a1a;
       padding: 50px 20px 20px;
       text-align: center;
     }
@@ -488,58 +488,52 @@
     }
 
     .footer-column h3 {
-      color: var(--accent);
+      color: #D4AF37;
       margin-bottom: 20px;
       font-size: 1.2rem;
+      font-family: 'Cinzel';
     }
 
     .footer-column ul {
       list-style: none;
+      
     }
 
     .footer-column ul li {
-      margin-bottom: 10px;
+      margin-bottom: 10px; 
+      ;
     }
 
     .footer-column ul li a {
-      color: var(--text-secondary);
+      color: #CCCCCC;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      font-family: 'Montserrat';
     }
 
     .footer-column ul li a:hover {
-      color: var(--primary);
+      color: #8B0000;
       padding-left: 5px;
     }
 
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
+    .link img{
+        transition: all 0.5s;
     }
 
-    .social-links a {
-      color: var(--text);
-      background-color: var(--secondary-light);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .social-links a:hover {
-      background-color: var(--primary);
-      transform: translateY(-3px);
+    .link img:hover {
+        transform: translateY(-5px) ;
     }
 
     .copyright {
       padding-top: 20px;
-      border-top: 1px solid var(--secondary-light);
-      color: var(--text-secondary);
+      border-top: 1px solid #2d2d2d;
+      color: #CCCCCC;
       font-size: 0.9rem;
+      
+    }
+
+    .copyright p{
+      font-family: 'Montserrat';
     }
 
     /* Animations */
